@@ -11,13 +11,35 @@
         <main class="main">
             <div class="div-inicio">
                 <h1>
-                    hello world!!
+                    Pratica com APIs
                 </h1>              
             </div>
-            <div class="inputNumCuriosidade">
+
+            <div class="buttonISS">
+                <p>Buscar a posição da ISS (Intertional Space Station)</p>
+                <button onclick="getISS()">Buscar</button>
+                <div class="respISS" id="divResp">
+                </div>    
+            </div>
+
+            <div class="buttonNumber">
                 <label for="idCuriosidadeNum">Digite um numero</label>
                 <input type="number" id="idCuriosidadeNum"> 
+                <button onclick="getNumbers()">Buscar num</button>
             </div>
+
+            <div class="buttonData">
+                <label for="idDataCuriosidade">Digite uma data</label>
+                <input type="text" id="idDataCuriosidade" maxlength="5"  placeholder="dd/mm">
+                <button onclick="getData()">buscar data</button>
+            </div>
+
+            <div class="starWarsButton">
+                <label for="idStarWars">Digite um numero</label>
+                <input type="number" id="idStarWars">
+                <button onclick="getStarWars()">Buscar </button>
+            </div>
+
         </main>        
     </div>
     <script src="main.js"></script>
