@@ -18,7 +18,7 @@
             <div class="buttonISS">
                 <p>Buscar a posição da ISS (Intertional Space Station)</p>
                 <button onclick="getISS()">Buscar</button>
-                <div class="respISS" id="divResp">
+                <div class="respISS" id="divRespISS">
                 </div>    
             </div>
 
@@ -26,12 +26,16 @@
                 <label for="idCuriosidadeNum">Digite um numero</label>
                 <input type="number" id="idCuriosidadeNum"> 
                 <button onclick="getNumbers()">Buscar num</button>
+                <div class="respNumbers" id="divRespNum">
+                </div>
             </div>
 
             <div class="buttonData">
                 <label for="idDataCuriosidade">Digite uma data</label>
                 <input type="text" id="idDataCuriosidade" maxlength="5"  placeholder="dd/mm">
                 <button onclick="getData()">buscar data</button>
+                <div class="respDatas" id="divRespData">
+                </div>
             </div>
 
             <div class="starWarsButton">

@@ -1,8 +1,6 @@
 
 
-
 function fazGet(url) {
-
     //parametros para uma busca de API
     let request = new XMLHttpRequest()
     request.open('GET', url, false)
@@ -15,10 +13,9 @@ function criaLinhasISS(dados){
     const paragrafo = document.createElement("p")
     const node = document.createTextNode("Posiçoes: Longitude: " + dados.longitude + " Latitude: " + dados.latitude)
     paragrafo.appendChild(node)
-    document.getElementById("divResp").appendChild(paragrafo)
+    document.getElementById("divRespISS").appendChild(paragrafo)
 
 }
-
 function getISS(){
     // vem como um objeto, se converte para JSON
     const issPosition = fazGet("http://api.open-notify.org/iss-now")
@@ -33,33 +30,45 @@ function getISS(){
 }
 
 function getNumbers(){
-
     let numero = document.getElementById("idCuriosidadeNum").value
-    console.log(numero)
     //vem como string, não é preciso converter para JSON
     const numberCurious = fazGet(`http://numberapi.com/${numero}`) 
-    console.log(numberCurious)
+    criaLinhasNumbers(numberCurious)
+}
+
+function criaLinhasNumbers(infoNumero){
+    //monta um paragrafo para mostar na tela as infos trazidas da requisição
+    const paragrafo = document.createElement("p")
+    const node = document.createTextNode("Curiosidade sobre o numero: " + infoNumero )
+    paragrafo.appendChild(node)
+    document.getElementById("divRespNum").appendChild(paragrafo)
 
 }
 
 function getData(){
-
     let data = document.getElementById("idDataCuriosidade").value
     console.log(data)
     const dateCurious = fazGet(`http://numberapi.com/${data}/date`)
     console.log(dateCurious)
-
+    criaLinhasData(dateCurious)
 }
+
+function criaLinhasData(dateCurious){
+    //monta um paragrafo para mostar na tela as infos trazidas da requisição
+    const paragrafo = document.createElement("p")
+    const node = document.createTextNode("Um fato sobre a data: " + dateCurious )
+    paragrafo.appendChild(node)
+    document.getElementById("divRespData").appendChild(paragrafo)
+}
+
+
 
 function getStarWars(){
 
     let numPersonagem = document.getElementById("idStarWars").value
-    console.log(numPersonagem)
-    const starWarsPeople = fazGet(`https://swapi.dev/api/people/${numPersonagem}/`)
-    personagem = JSON.parse(starWarsPeople)
-    console.log(personagem)
+    const response = fazGet(`https://swapi.dev/api/people/${numPersonagem}/`)
+    personagem = JSON.parse(response)
 
-    criaLinhas(a)
 
 }
 
