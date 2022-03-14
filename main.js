@@ -46,15 +46,17 @@ function criaLinhasNumbers(infoNumero){
     const node = document.createTextNode("Curiosidade sobre o numero: " + infoNumero )
     paragrafo.appendChild(node)
     document.getElementById("divRespNum").appendChild(paragrafo)
-
 }
 
 function getData(){
     let data = document.getElementById("idDataCuriosidade").value
-    console.log(data)
-    const dateCurious = fazGet(`http://numberapi.com/${data}/date`)
-    console.log(dateCurious)
-    criaLinhasData(dateCurious)
+    if(data == ""){
+        alert("Digite uma data valida")
+    }else{
+        const dateCurious = fazGet(`http://numberapi.com/${data}/date`)
+        console.log(dateCurious)
+        criaLinhasData(dateCurious)
+    }
 }
 
 function criaLinhasData(dateCurious){
@@ -65,26 +67,30 @@ function criaLinhasData(dateCurious){
     document.getElementById("divRespData").appendChild(paragrafo)
 }
 
-
-
 function getStarWars(){
 
     let numPersonagem = document.getElementById("idStarWars").value
-    const response = fazGet(`https://swapi.dev/api/people/${numPersonagem}/`)
-    personagem = JSON.parse(response)
-    const nome       = personagem.name  
-    const nascimento = personagem.birth_year 
-    const corCabelo   = personagem.hair_color
-    const genero     = personagem.gender
 
-    personagemDados = {
-        nome : nome,
-        nascimento : nascimento,
-        corCabelo  : corCabelo,
-        genero     : genero
+    if (numPersonagem == ""){
+        alert("Digite um numero valido")
+
+    }else{
+        const response = fazGet(`https://swapi.dev/api/people/${numPersonagem}/`)
+        personagem = JSON.parse(response)
+        const nome       = personagem.name  
+        const nascimento = personagem.birth_year 
+        const corCabelo   = personagem.hair_color
+        const genero     = personagem.gender
+    
+        personagemDados = {
+            nome : nome,
+            nascimento : nascimento,
+            corCabelo  : corCabelo,
+            genero     : genero
+        }
+        criaLinhasSW(personagemDados)
+    
     }
-    criaLinhasSW(personagemDados)
-
 }
 
 

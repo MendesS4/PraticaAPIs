@@ -42,7 +42,7 @@
                         <p>Curiosidades sobre numeros</p>
                         <div class="input-group mb-3">
                             <input type="number" class="form-control" placeholder="digite um número"
-                                aria-label="Recipient's username" id="idCuriosidadeNum" aria-describedby="idCuriosidadeNum">
+                                 id="idCuriosidadeNum" aria-describedby="idCuriosidadeNum">
                             <button class="btn btn-dark" type="button" id="idCuriosidadeNum"
                                 onclick="getNumbers()">Buscar</button>
                         </div>
@@ -55,8 +55,8 @@
                     <div class="card-body">
                         <p>Curiosidades sobre datas</p>
                         <div class="input-group mb-3">
-                            <input type="number" class="form-control" placeholder="digite uma data"
-                                aria-label="Recipient's username" id="idDataCuriosidade" aria-describedby="idDataCuriosidade">
+                            <input type="number" class="form-control" placeholder="digite uma data" maxlength="5"
+                                 id="idDataCuriosidade" aria-describedby="idDataCuriosidade">
                             <button class="btn btn-dark" type="button" id="idDataCuriosidade"
                                 onclick="getData()">Buscar</button>
                         </div>
@@ -71,7 +71,7 @@
                         <p>Personagens de Star Wars</p>
                         <div class="input-group mb-3">
                             <input type="number" class="form-control" placeholder="digite um número"
-                                aria-label="Recipient's username" id="idStarWars" aria-describedby="idStarWars">
+                                min="1" max="25" id="idStarWars" aria-describedby="idStarWars">
                             <button class="btn btn-dark" type="button" id="idStarWars"
                                 onclick="getStarWars()">Buscar</button>
                         </div>
