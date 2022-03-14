@@ -11,7 +11,7 @@ function fazGet(url) {
 function criaLinhasISS(dados){
     //monta um paragrafo para mostar na tela as infos trazidas da requisição
     const paragrafo = document.createElement("p")
-    const node = document.createTextNode("Posiçoes: Longitude: " + dados.longitude + " Latitude: " + dados.latitude)
+    const node = document.createTextNode("Posições: Longitude: " + dados.longitude + " Latitude: " + dados.latitude)
     paragrafo.appendChild(node)
     document.getElementById("divRespISS").appendChild(paragrafo)
 
@@ -31,9 +31,13 @@ function getISS(){
 
 function getNumbers(){
     let numero = document.getElementById("idCuriosidadeNum").value
+    if (numero == ""){
+        alert("Digite um valor valido")
+    }else{
+        const numberCurious = fazGet(`http://numberapi.com/${numero}`) 
+        criaLinhasNumbers(numberCurious)
+    }
     //vem como string, não é preciso converter para JSON
-    const numberCurious = fazGet(`http://numberapi.com/${numero}`) 
-    criaLinhasNumbers(numberCurious)
 }
 
 function criaLinhasNumbers(infoNumero){
