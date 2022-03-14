@@ -68,8 +68,27 @@ function getStarWars(){
     let numPersonagem = document.getElementById("idStarWars").value
     const response = fazGet(`https://swapi.dev/api/people/${numPersonagem}/`)
     personagem = JSON.parse(response)
+    const nome       = personagem.name  
+    const nascimento = personagem.birth_year 
+    const corCabelo   = personagem.hair_color
+    const genero     = personagem.gender
 
+    personagemDados = {
+        nome : nome,
+        nascimento : nascimento,
+        corCabelo  : corCabelo,
+        genero     : genero
+    }
+    criaLinhasSW(personagemDados)
 
 }
 
 
+function criaLinhasSW(dados){
+    //monta um paragrafo para mostar na tela as infos trazidas da requisição
+    const paragrafo = document.createElement("p")
+    const node = document.createTextNode( "Nome: " + dados.nome +", Nascimento: " + dados.nascimento + ", Genero: " + dados.genero)
+    paragrafo.appendChild(node)
+    document.getElementById("divRespWS").appendChild(paragrafo)
+
+}
